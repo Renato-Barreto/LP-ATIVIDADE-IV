@@ -1,8 +1,8 @@
-//Crie uma funÁ„o chamada "calcularMedia" que recebe como par‚metro uma struct "Aluno", 
-//esta struct ter· informaÁıes como: nome, data de nascimento, duas notas e mÈdia e retorna a mÈdia das notas. 
-//Em seguida, crie um programa que declare um array de 5 alunos e utilize a funÁ„o "calcularMedia" para 
-//imprimir a mÈdia de cada aluno. TambÈm crie uma funÁ„o para verificar se um aluno est· aprovado ou reprovado 
-//sendo necess·rio mÈdia maior ou igual a 7,0 para aprovaÁ„o.
+//Crie uma fun√ß√£o chamada "calcularMedia" que recebe como par√¢metro uma struct "Aluno", 
+//esta struct ter√° informa√ß√µes como: nome, data de nascimento, duas notas e m√©dia e retorna i m√©dia das notas. 
+//Em seguida, crie um programa que declare um array de 5 alunos e utilize i fun√ß√£o "calcularMedia" para 
+//imprimir i m√©dia de cada aluno. Tamb√©m crie uma fun√ß√£o para verificar se um aluno est√° aprovado ou reprovado 
+//sendo necess√°rio m√©dia maior ou igual i 7,0 para aprova√ß√£o.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,9 +10,9 @@
 #include <locale.h>
 #include <time.h>
 
-// Declarando constantes, struct e funÁıes
+// Declarando constantes, struct e fun√ß√µes
 
-#define MAX_CHARACTER 250
+#define MAX_CHARACTER 200
 #define MAX_NOTE 2
 #define MAX_DATA 5
 
@@ -22,7 +22,7 @@ struct escola {
     float nota[MAX_NOTE];
     float mediaEscola;
 };
-void titulo ( ) {
+void cabecalho ( ) {
     system ("cls || clear");
     printf ("Bem-Vindo ao DevSchool++\n\n");
 }
@@ -35,10 +35,10 @@ float mediaFinal (float numero[]) {
     }
     return media = soma / (float) MAX_NOTE;
 }
-char* conceito (float valor) {
+char* situacao (float mediaE) {
     char classe[MAX_CHARACTER];
 
-    if (valor >= 7) {
+    if (mediaE >= 7) {
         strcpy (classe, "Aprovado");
     
     } else {
@@ -49,48 +49,48 @@ char* conceito (float valor) {
 int main ( ) {
     setlocale (LC_ALL, "portuguese");
 
-    //Declarando vari·veis
+    //Declarando vari√°veis
 
-    int a, b;
+    int i, j;
     struct escola estudante[MAX_DATA];
 
     //Solicitando dados
 
-    titulo ( );
-    for (a = 0; a < MAX_DATA; a++) {
-        printf ("Digite o nome do %d∫ estudante: ", a+1);
-        gets (estudante[a].nome);
-        printf ("Digite a data de nascimento do estudante: ");
-        gets (estudante[a].dataDeNascimento);
+    cabecalho ( );
+    for (i = 0; i < MAX_DATA; i++) {
+        printf ("Digite o nome do %d¬∫ estudante: ", i+1);
+        gets (estudante[i].nome);
+        printf ("Digite a data de nascimento do estudante (DD/MM/AAAA): ");
+        gets (estudante[i].dataDeNascimento);
 
-        for (b = 0; b < MAX_NOTE; b++) {
+        for (j = 0; j < MAX_NOTE; j++) {
             do {
-                printf ("Digite a %d™ nota: ", b+1);
-                scanf ("%f", &estudante[a].nota[b]);
+                printf ("Digite a %d¬™ nota: ", j+1);
+                scanf ("%f", &estudante[i].nota[j]);
 
-                if (estudante[a].nota[b] < 0 || estudante[a].nota[b] > 10) {
-                    printf ("\nNOTA INV¡LIDA! Por favor, informe uma nota entre 0 e 10\n\n"); }
+                if (estudante[i].nota[j] < 0 || estudante[i].nota[j] > 10) {
+                    printf ("\nNota Inv√°lida (Nota v√°lida entre 0 e 10)\n\n"); }
 
-            } while (estudante[a].nota[b] < 0 || estudante[a].nota[b] > 10);
+            } while (estudante[i].nota[j] < 0 || estudante[i].nota[j] > 10);
         }
         fflush (stdin);
         printf ("\n");
     
-        estudante[a].mediaEscola = mediaFinal(estudante[a].nota);
+        estudante[i].mediaEscola = mediaFinal(estudante[i].nota);
     }
 
     //Mostrando Resultado
 
-    titulo ( );
-    for (a = 0; a < MAX_DATA; a++) {
-        printf ("Nome do %d∫ estudante: %s\n\n", a+1, estudante[a].nome);
-        printf ("Data de nascimento do estudante: %d\n", estudante[a].dataDeNascimento);
+    cabecalho ( );
+    for (i = 0; i < MAX_DATA; i++) {
+        printf ("Nome do %d¬∫ estudante: %s\n\n", i+1, estudante[i].nome);
+        printf ("Data de nascimento: %d\n", estudante[i].dataDeNascimento);
 
-        for (b = 0; b < MAX_NOTE; b++) {
-            printf ("%d™ nota: %.2f\n", b+1, estudante[a].nota[b]);
+        for (j = 0; j < MAX_NOTE; j++) {
+            printf ("%d¬™ nota: %.2f\n", j+1, estudante[i].nota[j]);
         }
-        printf ("MÈdia: %.2f\n", estudante[a].mediaEscola);
-        printf ("SituaÁ„o escolar: %s\n\n", conceito (estudante[a].mediaEscola));
+        printf ("M√©dia: %.2f\n", estudante[i].mediaEscola);
+        printf ("Situa√ß√£o: %s\n\n", situacao (estudante[i].mediaEscola));
     }
 
     return 0;
