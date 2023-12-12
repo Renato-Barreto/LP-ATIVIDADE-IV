@@ -1,3 +1,13 @@
+//Desenvolva uma struct "Produto" que contenha informações como nome, preço e quantidade em estoque. 
+//Em seguida, desenvolva um menu para facilitar a escolha das opções:
+//1 - Realizar uma compra
+//2 - Consultar estoque
+//3 - Sair do programa. 
+
+//Escreva funções necessárias para calcular o valor total em estoque do produto e para atualizar a quantidade 
+//em estoque com base em uma compra. Crie um programa que utiliza essas funções para um produto.
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -47,7 +57,7 @@ int main() {
 
     // Loop para receber as escolhas do usuário
     do {
-        printf("Digite a opção desejada: ");
+        printf("\nDigite a opção desejada: ");
         scanf("%d", &opcao);
 
         switch (opcao) 
@@ -65,7 +75,7 @@ int main() {
         if (quantidade <= produto.estoque) 
         {
             produto.estoque -= quantidade;
-            printf("Compra realizada com sucesso!\n");
+            printf("Compra realizada com sucesso!\n\n");
         } else {
             printf("Não há quantidade suficiente em estoque.\n");
         }
