@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-//(Tirar d˙vida na prÛxima aula)
+//(Tirar d√∫vida na pr√≥xima aula)
 //typedef struct {
 //char nome[50];
 //float preco;
@@ -18,13 +18,10 @@ struct Produto
     int estoque;
 };
 
-// FunÁ„o para realizar uma compra
-
-
-// FunÁ„o para consultar o estoque
+// Fun√ß√£o para consultar o estoque
 void consultarEstoque(struct Produto produto) {
 printf("Produto: %s\n", produto.nome);
-printf("PreÁo: R$%.2f\n", produto.preco);
+printf("Pre√ßo: R$%.2f\n", produto.preco);
 printf("Quantidade em estoque: %i\n", produto.estoque);
 }
 
@@ -42,15 +39,15 @@ int main() {
 
     printf("==========Bem-Vindo ao CelularMania==========\n");
     printf("Acesse o estoque para vizualizar os produtos\n");
-    printf("Caso j· saiba, venha comprar conosco\n");
+    printf("Caso j√° saiba, venha comprar conosco\n");
     printf("O que deseja?\n\n");
     printf("1- Realizar uma compra\n");
     printf("2- Consultar estoque\n");
     printf("3- Sair do programa\n");
 
-    // Loop para receber as escolhas do usu·rio
+    // Loop para receber as escolhas do usu√°rio
     do {
-        printf("Digite a opÁ„o desejada: ");
+        printf("Digite a op√ß√£o desejada: ");
         scanf("%d", &opcao);
 
         switch (opcao) 
@@ -64,16 +61,16 @@ int main() {
             printf("Digite a quantidade desejada: ");
             scanf("%i", &quantidade);
 
-        // Verificando se a quantidade desejada est· disponÌvel no estoque
+        // Verificando se a quantidade desejada est√° dispon√≠vel no estoque
         if (quantidade <= produto.estoque) 
         {
             produto.estoque -= quantidade;
             printf("Compra realizada com sucesso!\n");
         } else {
-            printf("N„o h· quantidade suficiente em estoque.\n");
+            printf("N√£o h√° quantidade suficiente em estoque.\n");
         }
         } else {
-            printf("Produto n„o encontrado.\n");
+            printf("Produto n√£o encontrado.\n");
         }
                 break;
             case 2:
@@ -83,7 +80,7 @@ int main() {
                 printf("Finalizado.\n");
                 break;
             default:
-                printf("OpÁ„o inv·lida.\n");
+                printf("Op√ß√£o inv√°lida.\n");
                 break;
         }
     } while (opcao != 3);
