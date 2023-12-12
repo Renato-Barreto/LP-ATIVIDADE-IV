@@ -29,10 +29,12 @@ struct Produto
 };
 
 // Função para consultar o estoque
-void consultarEstoque(struct Produto produto) {
+void consultarEstoque(struct Produto produto,float total) {
 printf("Produto: %s\n", produto.nome);
 printf("Preço: R$%.2f\n", produto.preco);
 printf("Quantidade em estoque: %i\n", produto.estoque);
+total = produto.preco * produto.estoque;
+printf("Valor total: %.2f\n", total);
 }
 
 int main() {
@@ -41,10 +43,12 @@ int main() {
     struct Produto produto;
     char nomeProduto[50];
     int quantidade;
-    int opcao;
     strcpy(produto.nome, "Celular");
     produto.preco = 50.00;
     produto.estoque = 100;
+    float totalValor; 
+    int opcao;
+    
 
 
     printf("==========Bem-Vindo ao CelularMania==========\n");
@@ -84,7 +88,7 @@ int main() {
         }
                 break;
             case 2:
-                consultarEstoque(produto);
+                consultarEstoque(produto,totalValor);
                 break;
             case 3:
                 printf("Finalizado.\n");
